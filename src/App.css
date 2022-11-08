@@ -1,9 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
 .App {
   text-align: center;
 }
-.background{
-    background-color: hsl(111, 23%, 94%);
+.bold {
+   font-family: 'Bebas Neue', cursive;
 }
+
+.glassbg{
+    background: rgba( 255, 255, 255, 0.25 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 4px );
+-webkit-backdrop-filter: blur( 4px );
+border-radius: 10px;
+}
+.logo{
+    font-family: 'Cedarville Cursive', cursive;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
