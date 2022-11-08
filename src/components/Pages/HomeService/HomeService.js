@@ -26,7 +26,7 @@ const HomeService = () => {
 
                         </div>
                     </section>
-                    <Link><button className="btn w-64 btn-outline btn-success">SEE ALL</button></Link>
+                    <Link to='/services'><button className="btn w-64 btn-outline btn-success">SEE ALL</button></Link>
 
                 </div>
             </section>
