@@ -7,7 +7,7 @@ import useTitle from '../../../useTitle/useTitle';
 
 const Register = () => {
 
-    // useTitle('Register')
+    useTitle('Register')
 
 
     const [error, setError] = useState('')
