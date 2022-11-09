@@ -1,12 +1,17 @@
 import { createBrowserRouter } from "react-router-dom";
+import AddService from "../../components/AddService/AddService";
 import Login from "../../components/Authentication/Login/Login";
-import Register from "../../components/Authentication/Login/Register/Register";
+import Register from "../../components/Authentication/Register/Register";
+import AddReview from "../../components/Pages/AddReview/AddReview";
 import Blog from "../../components/Pages/Blog/Blog";
 import Home from "../../components/Pages/Home/Home";
+import MyReviews from "../../components/Pages/MyReviews/MyReviews";
+import ReviewList from "../../components/Pages/ReviewList/ReviewList";
 import Services from "../../components/Pages/Services/Services";
 import ServiceDetails from "../../components/ServiceDetails/ServiceDetails";
 
 import Main from "../../Layout/Main";
+import PrivateRoute from "./PrivateRoute";
 
 const routes = createBrowserRouter([
     {
@@ -32,6 +37,25 @@ const routes = createBrowserRouter([
                 path: '/services/:id',
                 loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`),
                 element: <ServiceDetails></ServiceDetails>
+            },
+            {
+                path: '/reviews',
+                // loader: () => fetch('http://localhost:5000/reviews'),
+                element: <ReviewList></ReviewList>
+            },
+            {
+                path: '/myreviews',
+                // loader: () => fetch('http://localhost:5000/addreview'),
+                element: <MyReviews></MyReviews>
+            },
+            {
+                path: '/addservice',
+                loader: () => fetch('http://localhost:5000/services'),
+                element: <AddService></AddService>
+            },
+            {
+                path: '/addreview',
+                element: <AddReview></AddReview>
             },
             {
                 path: '/blog',

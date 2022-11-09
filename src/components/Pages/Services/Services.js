@@ -30,12 +30,6 @@ const Services = () => {
                 </div>
             </section>
 
-            {/* <div className=' w-full mx-auto text-center '>
-                <button className="fixed bottom-0  btn btn-circle btn-primary my-10 shadow-xl">
-                    <GrAdd className=' text-5xl p-3 rounded-full' />
-                </button>
-            </div> */}
-
             <div className='w-full mx-auto text-center '>
                 <button className="fixed bottom-0 ">
                     <label htmlFor="my-modal-3" className='btn btn-circle btn-primary my-10 shadow-xl'>

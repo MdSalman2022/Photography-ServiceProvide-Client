@@ -18,7 +18,7 @@ const HomeService = () => {
                             <div className="flex justify-center space-x-3">
                                 <div className='grid grid-cols-3  place-items-center gap-10 '>
                                     {
-                                        services.map(service => <ServiceCard service={service}></ServiceCard>)
+                                        services.map(service => <ServiceCard service={service} key={service.service_id}></ServiceCard>)
                                     }
                                 </div>
 

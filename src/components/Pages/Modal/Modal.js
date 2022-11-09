@@ -1,10 +1,17 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Modal = () => {
 
     const navigate = useNavigate();
 
+    const showToastMessage = () => {
+        toast.success('Added New Service', {
+            position: toast.POSITION.BOTTOM_RIGHT
+        });
+    };
     const handleAddService = event => {
         event.preventDefault();
 
@@ -35,9 +42,9 @@ const Modal = () => {
             .then(data => {
                 console.log(data)
                 if (data.acknowledged) {
-                    alert('todo added successfully')
+                    showToastMessage()
                     event.target.reset();
-                    navigate('/')
+                    // navigate('/')
                 }
             })
     }

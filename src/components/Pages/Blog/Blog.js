@@ -9,7 +9,16 @@ const Blog = () => {
                     1.- Difference between SQL and NoSQL.
                 </div>
                 <div className="collapse-content bg-neutral text-neutral-content peer-checked:bg-info peer-checked:text-info-content">
-                    <p>CORS is shorthand for Cross-Origin Resource Sharing. It is a mechanism to allow or restrict requested resources on a web server depend on where the HTTP request was initiated. This policy is used to secure a certain web server from access by other website or domain.</p>
+                    <p>A SQL Database follows a table like structure which can have an
+                        unlimited number of rows and every data present inside the database
+                        is properly structured with Predefined Schemas, it is basically used
+                        to manipulate Relational Databases Management Systems.
+
+                        A NoSQL Database is a Distributed Database where the data is very
+                        unstructured with Dynamic Schema. Unlike SQL it cannot have unlimited
+                        rows but it follows a Standard Schema Definition and can store all
+                        sorts of data models with large distributed data in the form of
+                        key-value pairs, graph databases, documents or wide-column stores.</p>
                 </div>
             </div>
             <div className="collapse collapse-arrow  rounded-box my-5">
@@ -18,8 +27,11 @@ const Blog = () => {
                     2.What is JWT, and how does it work?
                 </div>
                 <div className="collapse-content bg-neutral text-neutral-content peer-checked:bg-info peer-checked:text-info-content">
-                    <p>Firebase Authentication provides backend services, easy-to-use SDKs, and ready-made UI libraries to authenticate users to your app. It supports authentication using passwords, phone numbers, popular federated identity providers like Google, Facebook and Twitter, and more.
-                        some of the options are: STYTCH, Ory, Supabase, Okta, PingIdentity, Keycloak, Frontegg, Authress</p>
+                    <p>JWT, or JSON Web Token, is an open standard used to share security information between two parties — a client and a server.
+                        Information Exchange: JWTs are a good way of securely transmitting information between parties because they can be signed, which means you can be sure that the senders are who they say they are. Additionally, the structure of a JWT allows you to verify that the content hasn't been tampered with.
+
+
+                    </p>
                 </div>
             </div>
             <div className="collapse collapse-arrow  rounded-box my-5">
@@ -28,7 +40,7 @@ const Blog = () => {
                     3. What is the difference between javascript and NodeJS?
                 </div>
                 <div className="collapse-content bg-neutral text-neutral-content peer-checked:bg-info peer-checked:text-info-content">
-                    <p>React Router is a standard library for routing in React. It enables the navigation among views of various components in a React Application, allows changing the browser URL, and keeps the UI in sync with the URL.
+                    <p>JavaScript is a simple programming language that can be used with any browser that has the JavaScript Engine installed. Node. js, on the other hand, is an interpreter or execution environment for the JavaScript programming language.
                     </p>
                 </div>
             </div>
@@ -38,7 +50,8 @@ const Blog = () => {
                     4. How does NodeJS handle multiple requests at the same time?
                 </div>
                 <div className="collapse-content bg-neutral text-neutral-content peer-checked:bg-info peer-checked:text-info-content">
-                    <p>Node. js is a JavaScript runtime environment that achieves low latency and high throughput by taking a “non-blocking” approach to serving requests. In other words, Node. js wastes no time or resources on waiting for I/O requests to return.
+                    <p>
+                        NodeJS receives multiple client requests and places them into EventQueue. NodeJS is built with the concept of event-driven architecture. NodeJS has its own EventLoop which is an infinite loop that receives requests and processes them.
                     </p>
                 </div>
             </div>

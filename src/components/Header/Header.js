@@ -1,9 +1,24 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import './Header.css'
 import logo from '../Assets/logo.png'
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider'
+import { FaUser } from 'react-icons/fa'
 
 const Header = () => {
+
+    const { user, logOut } = useContext(AuthContext)
+
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
+
+
+
+
     return (
         <div className='sticky top-0 z-50 w-full mx-auto'>
             <div className="navbar glassbg bg-opacity-50">
@@ -16,6 +31,16 @@ const Header = () => {
                             <li><NavLink to='/home'>Home</NavLink></li>
                             <li><NavLink to='/services'>Services</NavLink></li>
                             <li><NavLink to='/blog'>Blog</NavLink></li>
+                            {
+                                user?.uid ?
+                                    <>
+                                        <li><NavLink className="" to='/addservice'>Add Service</NavLink></li>
+                                        <li><NavLink className="" to='/myreviews'>My Reviews</NavLink></li>
+
+                                    </>
+                                    :
+                                    ''
+                            }
                         </ul>
                     </div>
                     <a className="btn btn-ghost normal-case logo text-3xl text-success">
@@ -27,11 +52,47 @@ const Header = () => {
                         <li><NavLink className="mr-2" to='/home'>Home</NavLink></li>
                         <li><NavLink className="mr-2" to='/services'>Services</NavLink></li>
                         <li><NavLink className="mr-2" to='/blog'>Blog</NavLink></li>
+                        {
+                            user?.uid ?
+                                <>
+                                    <li><NavLink className="mr-2" to='/addservice'>Add Service</NavLink></li>
+                                    <li><NavLink className="mr-2" to='/myreviews'>My Reviews</NavLink></li>
+
+                                </>
+                                :
+                                ''
+                        }
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link to='/login' className="btn  btn-primary mr-2">Login</Link>
-                    <Link to='/register' className="btn btn-primary ">Register</Link>
+                    <>
+                        {
+                            user?.uid ?
+                                <>
+                                    <Link>
+                                        <div className="avatar online">
+                                            <div className="w-10 rounded-full">
+                                                {
+                                                    user?.photoURL ?
+                                                        <img title={user?.displayName} src={user?.photoURL} />
+                                                        :
+                                                        <FaUser />
+                                                }
+                                            </div>
+                                        </div>
+                                    </Link>
+                                    <Link className="btn bg-primary text-white border-0  ml-5" onClick={handleLogOut}>Log Out</Link>
+                                </>
+                                :
+                                <>
+
+                                    <Link to="/login" className="btn bg-primary text-white  border-0  mr-2  ">Login</Link>
+                                    <Link to="/register" className="btn bg-primary text-white border-0  ">Sign up</Link>
+                                </>
+                        }
+                    </>
+
+
                 </div>
             </div>
         </div>
