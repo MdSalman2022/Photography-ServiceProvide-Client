@@ -1,6 +1,9 @@
 import React from 'react';
+import useTitle from '../../../useTitle/useTitle';
 
 const Blog = () => {
+
+    useTitle('Blog')
     return (
         <div className='container my-20  mx-auto px-10'>
             <div className="collapse collapse-arrow  rounded-box my-5">

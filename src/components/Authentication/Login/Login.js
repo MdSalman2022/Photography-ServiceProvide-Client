@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import useTitle from '../../../useTitle/useTitle';
 
 
 function Login() {
@@ -20,7 +21,7 @@ function Login() {
             <div className="w-4 h-4 rounded-full animate-pulse dark:bg-violet-400"></div>
         </div>
     }
-
+    useTitle('Login')
     const showToastMessage = () => {
         toast.error('You are logged in.', {
             position: toast.POSITION.BOTTOM_RIGHT

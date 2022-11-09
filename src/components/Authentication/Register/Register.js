@@ -2,9 +2,13 @@ import React, { useContext, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import useTitle from '../../../useTitle/useTitle';
 
 
 const Register = () => {
+
+    // useTitle('Register')
+
 
     const [error, setError] = useState('')
     const { createUser, providerLogin, updateUserProfile } = useContext(AuthContext)

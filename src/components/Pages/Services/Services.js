@@ -1,12 +1,14 @@
 import React from 'react';
 import { GrAdd } from 'react-icons/gr';
 import { Link, useLoaderData } from 'react-router-dom';
+import useTitle from '../../../useTitle/useTitle';
 import Modal from '../Modal/Modal';
 import ServiceCard from '../ServiceCard/ServiceCard';
 
 
 
 const Services = () => {
+    useTitle('Services')
 
     const services = useLoaderData();
 

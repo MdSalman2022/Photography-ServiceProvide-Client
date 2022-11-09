@@ -1,4 +1,5 @@
 import React from 'react'
+import useTitle from '../../../useTitle/useTitle'
 import About from '../../About/About'
 import Faq from '../../Faq/Faq'
 import WorkedWith from '../../WorkedWith/WorkedWith'
@@ -7,6 +8,7 @@ import HomeService from '../HomeService/HomeService'
 import SkillSet from '../SkillSet/SkillSet'
 
 const Home = () => {
+    useTitle('Home')
     return (
         <div>
             <Banner></Banner>

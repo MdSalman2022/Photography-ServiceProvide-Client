@@ -3,11 +3,13 @@ import { GrAdd } from 'react-icons/gr';
 import { Link, useLoaderData } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import useTitle from '../../useTitle/useTitle';
 import Modal from '../Pages/Modal/Modal';
 import ServiceCard from '../Pages/ServiceCard/ServiceCard';
 
 
 const AddService = () => {
+    useTitle('Add Service')
 
     const services = useLoaderData();
 

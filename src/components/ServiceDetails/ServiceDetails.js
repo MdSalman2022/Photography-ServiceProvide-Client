@@ -7,10 +7,10 @@ import ReviewList from '../Pages/ReviewList/ReviewList.js';
 const ServiceDetails = () => {
 
     const [services] = useLoaderData();
-    // console.log(services);
     const { name, price, img, desc, service_id } = services;
 
 
+    console.log(service_id);
     return (
         <div className='my-20 px-5 lg:px-10'>
             <div className='container mx-auto flex flex-col'>
@@ -21,8 +21,8 @@ const ServiceDetails = () => {
                 <p className="text-xl tracking-wider leading-10">{desc}</p>
                 <h1 className="text-3xl font-bold py-10">Review of {name}</h1>
                 <div className="">
-                    <AddReview></AddReview>
-                    <ReviewList></ReviewList>
+                    <AddReview service_id={service_id} services={[services]}></AddReview>
+                    <ReviewList service_id={service_id}></ReviewList>
                 </div>
             </div>
         </div>

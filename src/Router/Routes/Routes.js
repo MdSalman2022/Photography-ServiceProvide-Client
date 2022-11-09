@@ -46,12 +46,12 @@ const routes = createBrowserRouter([
             {
                 path: '/myreviews',
                 // loader: () => fetch('http://localhost:5000/addreview'),
-                element: <MyReviews></MyReviews>
+                element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>
             },
             {
                 path: '/addservice',
                 loader: () => fetch('http://localhost:5000/services'),
-                element: <AddService></AddService>
+                element: <PrivateRoute><AddService></AddService></PrivateRoute>
             },
             {
                 path: '/addreview',

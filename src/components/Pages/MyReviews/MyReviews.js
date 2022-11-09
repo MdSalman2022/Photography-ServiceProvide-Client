@@ -1,10 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import useTitle from '../../../useTitle/useTitle';
 import ReviewCard from '../ReviewCard/ReviewCard';
 
 const MyReviews = () => {
 
+    useTitle('My Review')
 
     const { user } = useContext(AuthContext);
     const [reviews, setReviews] = useState([])

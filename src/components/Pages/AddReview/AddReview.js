@@ -5,17 +5,14 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-const AddReview = () => {
+const AddReview = ({ services }) => {
 
+
+
+    console.log(services[0].service_id)
 
     const { user, setLoading } = useContext(AuthContext)
-    // console.log('hello from add review');
 
-    // const { service_id } = service;
-
-    // const { email, name } = user;
-
-    // console.log(service_id);
     const showToastMessage = () => {
         toast.success('Added your review', {
             position: toast.POSITION.BOTTOM_RIGHT
@@ -30,13 +27,14 @@ const AddReview = () => {
         const email = user?.email || 'unregistered';
         const message = form.message.value;
         const rating = form.rating.value;
+        const service_id = services[0]?.service_id
 
         const review = {
             photoURL: photoURL,
             name: name,
             message: message,
             rating: rating,
-            // service_id: service_id,
+            service_id: service_id,
             email: email,
             status: true,
         }
