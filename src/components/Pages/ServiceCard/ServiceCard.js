@@ -20,7 +20,7 @@ const ServiceCard = ({ service }) => {
                     {name}
                     {
                         status ?
-                            <div className="badge badge-success">NEW</div>
+                            <div className="badge badge-success">NEW ADDED</div>
                             :
                             <></>
                     }

@@ -16,7 +16,7 @@ const MyReviews = () => {
             .then(data => setReviews(data))
     }, [user?.email])
 
-
+    console.log(reviews.length)
 
     const handleDelete = review => {
         const permission = window.confirm(`Are you sure you want to delete: ${review.name}`)
@@ -38,6 +38,20 @@ const MyReviews = () => {
         }
     }
 
+    if (reviews.length === 0) {
+        return (
+            <div>
+                <div className="hero min-h-screen bg-base-200">
+                    <div className="hero-content text-center">
+                        <div className="max-w-md">
+
+                            <h1 className="text-5xl font-bold">No Reviews Found</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+    }
     return (
         <div>
             <div className="flex flex-col mx-auto  items-center gap-10 py-10 min-h-screen ">
