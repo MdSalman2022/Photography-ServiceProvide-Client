@@ -55,7 +55,7 @@ const ReviewUpdate = () => {
                     alert('Review updated successfully')
                     console.log(data)
                     showToastMessage()
-                    navigate('/')
+                    // navigate('/')
                 }
             })
     }
@@ -66,15 +66,15 @@ const ReviewUpdate = () => {
 
 
     return (
-        <div>
-            <div className="flex flex-col max-w-xl shadow-sm rounded-xl p-2">
-                <div className="flex flex-col items-start w-full">
+        <div className='flex justify-center w-full lg:my-20'>
+            <div className="flex flex-col justify-center  items-center max-w-xl shadow-sm rounded-xl p-2">
+                <div className="flex flex-col justify-center items-center w-full">
                     <h2 className="text-3xl font-semibold text-center">Your opinion matters!</h2>
                     <div className="flex flex-col items-start py-6 space-y-3">
                         <span className="text-start">How was your experience?</span>
 
                     </div>
-                    <form onSubmit={handleUpdate} className="flex flex-col w-full">
+                    <form onSubmit={handleUpdate} className="flex flex-col  w-full">
 
                         <fieldset className="space-y-1 sm:w-60 ">
                             <input type="range" name="rating" className="w-full accent-yellow-400 bg-success" defaultValue={storedReview?.review} min="1" max="5" />
