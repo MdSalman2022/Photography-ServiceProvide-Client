@@ -1,8 +1,6 @@
 import React from 'react';
-import { GrAdd } from 'react-icons/gr';
 import { Link, useLoaderData } from 'react-router-dom';
 import useTitle from '../../../useTitle/useTitle';
-import Modal from '../Modal/Modal';
 import ServiceCard from '../ServiceCard/ServiceCard';
 
 
@@ -32,21 +30,6 @@ const Services = () => {
                 </div>
             </section>
 
-            <div className='w-full mx-auto text-center '>
-                <button className="fixed bottom-0 ">
-                    <label htmlFor="my-modal-3" className='btn btn-circle btn-primary my-10 shadow-xl'>
-                        <GrAdd className=' text-5xl p-3 rounded-full' />
-                    </label >
-                </button>
-            </div>
-
-            <input type="checkbox" id="my-modal-3" className="modal-toggle" />
-            <div className="modal">
-                <div className="modal-box bg-neutral relative" >
-                    <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2 text-xl text-primary">✕</label>
-                    <Modal></Modal>
-                </div>
-            </div>
         </div>
     );
 };

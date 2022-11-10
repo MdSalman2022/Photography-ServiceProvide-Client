@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const Modal = () => {
+
+    const { user } = useContext(AuthContext)
 
     const navigate = useNavigate();
 
@@ -20,10 +23,12 @@ const Modal = () => {
         const name = form.name.value;
         const desc = form.desc.value;
         const price = form.price.value;
+        const email = form.email.value;
 
         const service = {
             img: img,
             name: name,
+            email: email,
             desc: desc,
             price: price,
             status: true
@@ -63,6 +68,12 @@ const Modal = () => {
                                 <label for="name" className="text-sm">Service Name</label>
                             </div>
                             <input type="text" name="name" id="name" placeholder="Weeding Photography" className="w-full px-3 py-2 border rounded-md text-success font-semibold " />
+                        </div>
+                        <div className="space-y-2">
+                            <div className="flex justify-between">
+                                <label for="email" className="text-sm">Email Address</label>
+                            </div>
+                            <input type="email" name="email" id="email" placeholder="john@email.com" defaultValue={user?.email} className="w-full px-3 py-2 border rounded-md text-success font-semibold " readonly />
                         </div>
                         <div className="space-y-2">
                             <div className="flex justify-between">

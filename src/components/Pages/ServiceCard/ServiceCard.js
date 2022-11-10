@@ -25,7 +25,7 @@ const ServiceCard = ({ service }) => {
                             <></>
                     }
                 </h2>
-                <p>{desc.substring(0, 100) + "..."} <a href="" className='text-accent'>Read More</a></p>
+                <p>{desc.substring(0, 100) + "..."} <Link to={`/services/${_id}`} className='text-accent'>Read More</Link></p>
                 <p className="">Price: {price} / hr</p>
                 <div className="card-actions justify-end">
                     <Link to={`/services/${_id}`}><button className="btn btn-success">Detail</button></Link>

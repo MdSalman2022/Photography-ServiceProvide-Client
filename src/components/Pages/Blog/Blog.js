@@ -5,7 +5,7 @@ const Blog = () => {
 
     useTitle('Blog')
     return (
-        <div className='container my-20  mx-auto px-10'>
+        <div className='container mt-10 mx-auto px-10  min-h-screen '>
             <div className="collapse collapse-arrow  rounded-box my-5">
                 <input type="checkbox" className="peer" />
                 <div className="collapse-title bg-neutral text-neutral-content peer-checked:bg-info peer-checked:text-info-content">

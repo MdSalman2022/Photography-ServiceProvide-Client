@@ -1,34 +1,32 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaStar } from 'react-icons/fa';
-import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
+const ReviewUpdate = () => {
+    const storedReview = useLoaderData()
+    const { user } = useContext(AuthContext)
 
-const AddReview = ({ services }) => {
+    const navigate = useNavigate()
 
-
-
-    console.log(services[0].service_id)
-
-    const { user, setLoading } = useContext(AuthContext)
 
     const showToastMessage = () => {
         toast.success('Added your review', {
             position: toast.POSITION.BOTTOM_RIGHT
         });
     };
-    const handleAddReview = event => {
+    const handleUpdate = event => {
         event.preventDefault();
 
         const form = event.target;
         const photoURL = form.photoURL.value;
         const name = form.name.value;
-        const email = user?.email || 'unregistered';
+        const email = storedReview?.email || 'unregistered';
         const message = form.message.value;
         const rating = form.rating.value;
-        const service_id = services[0]?.service_id
-        const serviceName = services[0]?.name
+        const service_id = storedReview?.service_id
+        const serviceName = storedReview?.serviceName
 
         const review = {
             photoURL: photoURL,
@@ -43,8 +41,8 @@ const AddReview = ({ services }) => {
 
         console.log(review)
 
-        fetch("http://localhost:5000/addreview", {
-            method: 'POST',
+        fetch(`http://localhost:5000/addreview/${storedReview._id}`, {
+            method: 'PUT',
             headers: {
                 'content-type': 'application/json'
             },
@@ -53,14 +51,18 @@ const AddReview = ({ services }) => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                if (data.acknowledged) {
-                    console.log('review posted')
+                if (data.modifiedCount > 0) {
+                    alert('Review updated successfully')
+                    console.log(data)
                     showToastMessage()
-                    event.target.reset();
-                    // navigate('/')
+                    navigate('/')
                 }
             })
     }
+
+
+
+
 
 
     return (
@@ -72,10 +74,10 @@ const AddReview = ({ services }) => {
                         <span className="text-start">How was your experience?</span>
 
                     </div>
-                    <form onSubmit={handleAddReview} className="flex flex-col w-full">
+                    <form onSubmit={handleUpdate} className="flex flex-col w-full">
 
                         <fieldset className="space-y-1 sm:w-60 ">
-                            <input type="range" name="rating" className="w-full accent-yellow-400 bg-success" defaultValue="5" min="1" max="5" />
+                            <input type="range" name="rating" className="w-full accent-yellow-400 bg-success" defaultValue={storedReview?.review} min="1" max="5" />
                             <div aria-hidden="true" className="flex justify-between px-1">
                                 <span className='text-primary'><FaStar /></span>
                                 <span className='text-primary'><FaStar /></span>
@@ -93,9 +95,9 @@ const AddReview = ({ services }) => {
                         </div>
                         <div className="space-y-2">
                             <div className="flex justify-between">
-                                <label for="name" className=" text-sm">Name</label>
+                                <label for="name" className=" text-sm">Email</label>
                             </div>
-                            <input type="email" name="email" id="email" defaultValue={user?.email} placeholder="John Doe" className="w-full px-3 py-2 border rounded-md text-success" readOnly />
+                            <input type="email" name="email" id="email" defaultValue={user?.email} placeholder="john@email.com" className="w-full px-3 py-2 border rounded-md text-success" readOnly />
                         </div>
                         <div className="space-y-2 my-5">
                             <div className="flex justify-between">
@@ -106,9 +108,9 @@ const AddReview = ({ services }) => {
                         <div className="flex justify-between my-2">
                             <label for="price" className="text-sm">Review</label>
                         </div>
-                        <textarea rows="3" name="message" placeholder="Message..." className="p-4 rounded-md resize-none "></textarea>
+                        <textarea rows="3" name="message" defaultValue={storedReview?.message} placeholder="Message..." className="p-4 rounded-md resize-none "></textarea>
 
-                        <button type="submit" className="py-4 my-8 btn font-semibold btn-primary rounded-md ">Leave feedback</button>
+                        <button type="submit" className="py-4 my-8 btn font-semibold btn-primary rounded-md ">Update feedback</button>
                     </form>
                     <ToastContainer />
                 </div>
@@ -117,4 +119,4 @@ const AddReview = ({ services }) => {
     );
 };
 
-export default AddReview;
+export default ReviewUpdate;

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import useTitle from '../../../useTitle/useTitle';
 import ReviewCard from '../ReviewCard/ReviewCard';
@@ -18,13 +18,33 @@ const MyReviews = () => {
 
 
 
+    const handleDelete = review => {
+        const permission = window.confirm(`Are you sure you want to delete: ${review.name}`)
+        console.log(permission);
+        console.log(review._id);
+        if (permission) {
+            fetch(`http://localhost:5000/addreview/${review._id}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    if (data.deletedCount > 0) {
+                        alert('Review deleted successfully')
+                        const remainingReviews = reviews.filter(t => t._id !== review._id)
+                        setReviews(remainingReviews)
+                    }
+                })
+        }
+    }
+
     return (
         <div>
-            <div className="flex flex-col mx-auto justify-center items-center gap-10 py-10">
+            <div className="flex flex-col mx-auto  items-center gap-10 py-10 min-h-screen ">
                 {
                     reviews.map(review =>
                         <div key={review._id}>
-                            <div className="container flex flex-col w-full w-screen p-6 divide-y rounded-md bg-success text-white">
+                            <div className="container flex flex-col  w-screen p-6 divide-y rounded-md bg-success text-white">
                                 <div className="flex justify-between p-4 ">
 
 
@@ -34,7 +54,7 @@ const MyReviews = () => {
                                         </div>
                                         <div>
                                             <h4 className="font-bold">{review?.name}</h4>
-                                            <h4 className="font-bold">{review?.email}</h4>
+                                            <h4 className="font-bold">Service Name: {review?.serviceName}</h4>
                                             <span className="text-xs dark:text-gray-400">2 days ago</span>
                                         </div>
                                     </div>
@@ -45,8 +65,14 @@ const MyReviews = () => {
                                         <span className="text-xl font-bold ">{review?.rating}</span>
                                     </div>
                                 </div>
-                                <div className="p-4 space-y-2 text-sm dark:text-gray-400">
-                                    <p>{review?.message}</p>
+                                <div className="flex justify-between pt-5">
+                                    <p className=''>{review?.message}</p>
+                                    <div>
+                                        <Link to={`/addreview/${review._id}`}>
+                                            <button className="btn btn-success w-24 mr-2">Edit</button>
+                                        </Link>
+                                        <button onClick={() => handleDelete(review)} className="btn btn-error w-24">Delete</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -10,7 +10,7 @@ const Faq = () => {
                     <details>
                         <summary className="py-2 outline-none cursor-pointer focus:underline">Do you work hourly?</summary>
                         <div className="px-4 pb-4">
-                            <p>Yes but i work on project.</p>
+                            <p>Yes but i also work on project based job.</p>
                         </div>
                     </details>
                     <details>

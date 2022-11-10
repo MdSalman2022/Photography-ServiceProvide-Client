@@ -39,7 +39,6 @@ function Login() {
             .then(result => {
                 const user = result.user;
                 form.reset();
-                setError('')
                 showToastMessage()
                 navigate(from, { replace: true })
             })
@@ -108,7 +107,7 @@ function Login() {
                                 <label for="password" className="text-sm">Password</label>
                             </div>
                             <input type="password" name="password" id="password" placeholder="*****" className="w-full px-3 py-2 border rounded-md       " />
-                            <p>{error}</p>
+                            <p className='text-red-500'>{error}</p>
                         </div>
                     </div>
                     <button className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md hover:bg-primary  hover:text-neutral duration-300">

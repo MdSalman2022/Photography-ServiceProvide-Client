@@ -55,7 +55,7 @@ const AddService = () => {
                             <p className="flex justify-center items-center px-6 py-2 bold lg:text-5xl tracking-wide border-2 h-full rounded-xl border-success w-full">Added Services</p>
 
                             {
-                                services.map(service => service.status ? <ServiceCard service={service}></ServiceCard> : '')
+                                services.map(service => user.email === service.email ? <ServiceCard service={service}></ServiceCard> : '')
                             }
                         </div>
 

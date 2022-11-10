@@ -2,8 +2,8 @@ import React from 'react'
 import logo from '../Assets/logo.png'
 function Footer() {
     return (
-        <div>
-            <footer className="footer p-10 bg-neutral text-base-content text-white">
+        <div className=''>
+            <footer className=" footer p-10 bg-neutral text-base-content text-white">
                 <div>
                     <img src={logo} alt="" />
                     <p>Peter McKinnon Photography<br />World's Top Photographer of 2020</p>

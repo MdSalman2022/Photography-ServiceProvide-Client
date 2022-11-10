@@ -29,6 +29,7 @@ const Review = ({ review }) => {
                 </div>
                 <div className="p-4 space-y-2 text-sm dark:text-gray-400">
                     <p>{message}</p>
+
                 </div>
             </div>
         </div>
