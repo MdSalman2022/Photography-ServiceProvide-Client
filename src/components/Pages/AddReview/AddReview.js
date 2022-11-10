@@ -44,7 +44,7 @@ const AddReview = ({ services }) => {
 
         console.log(review)
 
-        fetch("http://localhost:5000/addreview", {
+        fetch("https://y-nine-rose.vercel.app/addreview", {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -21,42 +21,42 @@ const routes = createBrowserRouter([
         children: [
             {
                 path: '/',
-                loader: () => fetch('http://localhost:5000/homeservice'),
+                loader: () => fetch('https://y-nine-rose.vercel.app/homeservice'),
                 element: <Home></Home>
             },
             {
                 path: '/home',
-                loader: () => fetch('http://localhost:5000/homeservice'),
+                loader: () => fetch('https://y-nine-rose.vercel.app/homeservice'),
                 element: <Home></Home>
             },
             {
                 path: '/services',
-                loader: () => fetch('http://localhost:5000/services'),
+                loader: () => fetch('https://y-nine-rose.vercel.app/services'),
                 element: <Services></Services>
             },
             {
                 path: '/addreview/:id',
-                loader: ({ params }) => fetch(`http://localhost:5000/addreview/${params.id}`),
+                loader: ({ params }) => fetch(`https://y-nine-rose.vercel.app/addreview/${params.id}`),
                 element: <ReviewUpdate></ReviewUpdate>
             },
             {
                 path: '/services/:id',
-                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`),
+                loader: ({ params }) => fetch(`https://y-nine-rose.vercel.app/services/${params.id}`),
                 element: <ServiceDetails></ServiceDetails>
             },
             {
                 path: '/reviews',
-                // loader: () => fetch('http://localhost:5000/reviews'),
+                // loader: () => fetch('https://y-nine-rose.vercel.app/reviews'),
                 element: <ReviewList></ReviewList>
             },
             {
                 path: '/myreviews',
-                // loader: () => fetch('http://localhost:5000/addreview'),
+                // loader: () => fetch('https://y-nine-rose.vercel.app/addreview'),
                 element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>
             },
             {
                 path: '/addservice',
-                loader: () => fetch('http://localhost:5000/services'),
+                loader: () => fetch('https://y-nine-rose.vercel.app/services'),
                 element: <PrivateRoute><AddService></AddService></PrivateRoute>
             },
             {

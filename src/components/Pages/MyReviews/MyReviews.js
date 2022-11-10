@@ -11,7 +11,7 @@ const MyReviews = () => {
     const { user } = useContext(AuthContext);
     const [reviews, setReviews] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/addreview?email=${user?.email}`)
+        fetch(`https://y-nine-rose.vercel.app/addreview?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [user?.email])
@@ -23,7 +23,7 @@ const MyReviews = () => {
         console.log(permission);
         console.log(review._id);
         if (permission) {
-            fetch(`http://localhost:5000/addreview/${review._id}`, {
+            fetch(`https://y-nine-rose.vercel.app/addreview/${review._id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

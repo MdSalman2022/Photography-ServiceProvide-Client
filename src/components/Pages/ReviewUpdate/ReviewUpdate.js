@@ -41,7 +41,7 @@ const ReviewUpdate = () => {
 
         console.log(review)
 
-        fetch(`http://localhost:5000/addreview/${storedReview._id}`, {
+        fetch(`https://y-nine-rose.vercel.app/addreview/${storedReview._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
