@@ -19,7 +19,7 @@ const Services = () => {
 
                     <p className="px-6 py-2 bold lg:text-5xl tracking-wide">Our Services</p>
                     <div className="flex justify-center space-x-3">
-                        <div className='grid grid-cols-3  place-items-center gap-10 '>
+                        <div className='grid grid-cols-1 md:grid-cols-3  lg:grid-cols-3  place-items-center gap-10 '>
                             {
                                 services.map(service => <ServiceCard service={service}></ServiceCard>)
                             }

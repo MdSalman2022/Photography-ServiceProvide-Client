@@ -3,8 +3,8 @@ import React from 'react';
 const About = () => {
     return (
         <section className="p-20 background text-success">
-            <h1 className='text-3xl'>About Me</h1>
-            <div className="container mx-auto grid justify-center grid-cols-2 text-center lg:grid-cols-3">
+            <h1 className='text-3xl lg:p-0 p-5 '>About Me</h1>
+            <div className="container mx-auto grid justify-center grid-cols-1 text-center lg:grid-cols-3 lg:gap-0 gap-5">
                 <div className="flex flex-col justify-start m-2 lg:m-6">
                     <p className="text-4xl font-bold leading-none lg:text-6xl">50+</p>
                     <p className="text-sm sm:text-base">Clients</p>

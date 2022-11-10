@@ -28,18 +28,30 @@ const Header = () => {
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                            <li><NavLink to='/home'>Home</NavLink></li>
-                            <li><NavLink to='/services'>Services</NavLink></li>
-                            <li><NavLink to='/blog'>Blog</NavLink></li>
+                            <li className='mb-2'><NavLink to='/home'>Home</NavLink></li>
+                            <li className='mb-2'><NavLink to='/services'>Services</NavLink></li>
+                            <li className='mb-2'><NavLink to='/blog'>Blog</NavLink></li>
                             {
                                 user?.uid ?
                                     <>
-                                        <li><NavLink className="" to='/addservice'>Add Service</NavLink></li>
-                                        <li><NavLink className="" to='/myreviews'>My Reviews</NavLink></li>
+                                        <li><NavLink className="mb-2" to='/addservice'>Add Service</NavLink></li>
+                                        <li><NavLink className="mb-2" to='/myreviews'>My Reviews</NavLink></li>
 
                                     </>
                                     :
                                     ''
+                            }
+                            {
+                                user?.uid ?
+                                    <>
+                                        <Link className="btn bg-primary text-white border-0" onClick={handleLogOut}>Log Out</Link>
+                                    </>
+                                    :
+                                    <>
+
+                                        <Link to="/login" className="btn bg-primary text-white  border-0  mb-2  ">Login</Link>
+                                        <Link to="/register" className="btn bg-primary text-white border-0  ">Sign up</Link>
+                                    </>
                             }
                         </ul>
                     </div>
@@ -81,13 +93,13 @@ const Header = () => {
                                             </div>
                                         </div>
                                     </Link>
-                                    <Link className="btn bg-primary text-white border-0  ml-5" onClick={handleLogOut}>Log Out</Link>
+                                    <Link className="btn bg-primary text-white border-0 ml-5 hidden md:flex lg:flex " onClick={handleLogOut}>Log Out</Link>
                                 </>
                                 :
                                 <>
 
-                                    <Link to="/login" className="btn bg-primary text-white  border-0  mr-2  ">Login</Link>
-                                    <Link to="/register" className="btn bg-primary text-white border-0  ">Sign up</Link>
+                                    <Link to="/login" className="btn bg-primary text-white  border-0  mr-2 ">Login</Link>
+                                    <Link to="/register" className="btn bg-primary text-white border-0  hidden md:flex lg:flex">Sign up</Link>
                                 </>
                         }
                     </>

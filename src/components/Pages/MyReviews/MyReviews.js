@@ -58,7 +58,7 @@ const MyReviews = () => {
                 {
                     reviews.map(review =>
                         <div key={review._id}>
-                            <div className="container flex flex-col  w-screen p-6 divide-y rounded-md bg-success text-white">
+                            <div className="container flex flex-col w-96  lg:w-screen p-6 divide-y rounded-md bg-success text-white">
                                 <div className="flex justify-between p-4 ">
 
 
