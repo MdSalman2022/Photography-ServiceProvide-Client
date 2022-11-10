@@ -1,3 +1,39 @@
+
+## `Site Name` Peter McKinnon Photography
+Site link: Open [https://photography-site-32ba9.web.app/](https://photography-site-32ba9.web.app/) to view it in your browser.
+Server link: [https://y-nine-rose.vercel.app/](https://y-nine-rose.vercel.app/) to view it in your browser.
+
+### `Features`
+- Login
+- Register
+- Private Route
+- Manage Review
+- Review List
+- Create service
+- Post Review
+- 404 Page
+- FAQ 
+- Blog page
+- Google login
+- Email password registration
+- Data collect from MongoDB
+- Photo view 
+- Dynamic page title
+
+
+
+### `Functionality and Library Used`
+- MongoDB CRUD operation
+- Tailwind
+- Daisy UI
+- React Photo View
+- Express Js
+- Cors
+- Vercel
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

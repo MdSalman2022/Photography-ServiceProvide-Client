@@ -64,12 +64,12 @@ const MyReviews = () => {
 
                                     <div className="flex space-x-4 ">
                                         <div>
-                                            <img src={review?.photoURL} alt="" className="object-cover w-12 h-12 rounded-full dark:bg-gray-500" />
+                                            <img src={review?.photoURL} alt="" className="object-cover w-12 h-12 rounded-full" />
                                         </div>
                                         <div>
                                             <h4 className="font-bold">{review?.name}</h4>
                                             <h4 className="font-bold">Service Name: {review?.serviceName}</h4>
-                                            <span className="text-xs dark:text-gray-400">2 days ago</span>
+                                            <span className="text-xs ">2 days ago</span>
                                         </div>
                                     </div>
                                     <div className="flex items-center space-x-2 text-primary">
@@ -83,9 +83,9 @@ const MyReviews = () => {
                                     <p className=''>{review?.message}</p>
                                     <div>
                                         <Link to={`/addreview/${review._id}`}>
-                                            <button className="btn btn-success w-24 mr-2">Edit</button>
+                                            <button className="btn btn-success w-32 mr-2">Edit Review</button>
                                         </Link>
-                                        <button onClick={() => handleDelete(review)} className="btn btn-error w-24">Delete</button>
+                                        <button onClick={() => handleDelete(review)} className="btn btn-error w-36">Delete Review</button>
                                     </div>
                                 </div>
                             </div>

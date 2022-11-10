@@ -4,6 +4,7 @@ import Login from "../../components/Authentication/Login/Login";
 import Register from "../../components/Authentication/Register/Register";
 import AddReview from "../../components/Pages/AddReview/AddReview";
 import Blog from "../../components/Pages/Blog/Blog";
+import ErrorPage from "../../components/Pages/ErrorPage/ErrorPage";
 import Home from "../../components/Pages/Home/Home";
 import MyReviews from "../../components/Pages/MyReviews/MyReviews";
 import ReviewList from "../../components/Pages/ReviewList/ReviewList";
@@ -18,6 +19,7 @@ const routes = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: '/',

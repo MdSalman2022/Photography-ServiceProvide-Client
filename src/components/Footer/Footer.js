@@ -7,6 +7,7 @@ function Footer() {
                 <div>
                     <img src={logo} alt="" />
                     <p>Peter McKinnon Photography<br />World's Top Photographer of 2020</p>
+                    <p>Copyright	&copy; 2022 Peter. All Rights Reserved</p>
                 </div>
                 <div>
                     <span className="footer-title">Services</span>

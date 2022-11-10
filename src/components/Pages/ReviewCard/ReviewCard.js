@@ -13,11 +13,11 @@ const Review = ({ review }) => {
 
                     <div className="flex space-x-4 ">
                         <div>
-                            <img src={photoURL} alt="" className="object-cover w-12 h-12 rounded-full dark:bg-gray-500" />
+                            <img src={photoURL} alt="" className="object-cover w-12 h-12 rounded-full " />
                         </div>
                         <div>
                             <h4 className="font-bold">{name}</h4>
-                            <span className="text-xs dark:text-gray-400">2 days ago</span>
+                            <span className="text-xs ">2 days ago</span>
                         </div>
                     </div>
                     <div className="flex items-center space-x-2 text-primary">
@@ -27,7 +27,7 @@ const Review = ({ review }) => {
                         <span className="text-xl font-bold ">{rating}</span>
                     </div>
                 </div>
-                <div className="p-4 space-y-2 text-sm dark:text-gray-400">
+                <div className="p-4 space-y-2 text-sm ">
                     <p>{message}</p>
 
                 </div>
