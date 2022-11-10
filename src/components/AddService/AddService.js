@@ -53,7 +53,7 @@ const AddService = () => {
                                 </div>
                             </div>
                             <p className="flex justify-center items-center px-6 py-2 bold lg:text-5xl tracking-wide border-2 h-full rounded-xl border-success w-full">Added Services</p>
-
+                            {/* Added service card will be on add service page. User can see his added service not all the service added to the database */}
                             {
                                 services.map(service => user.email === service.email ? <ServiceCard service={service}></ServiceCard> : '')
                             }

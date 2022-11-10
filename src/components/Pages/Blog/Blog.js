@@ -3,7 +3,10 @@ import useTitle from '../../../useTitle/useTitle';
 
 const Blog = () => {
 
+    //Dynamic title
     useTitle('Blog')
+
+    //Q/A
     return (
         <div className='container mt-10 mx-auto px-10  min-h-screen '>
             <div className="collapse collapse-arrow  rounded-box my-5">

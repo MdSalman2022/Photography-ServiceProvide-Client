@@ -1,12 +1,21 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import useTitle from '../../../useTitle/useTitle';
-import ReviewCard from '../ReviewCard/ReviewCard';
 
 const MyReviews = () => {
 
     useTitle('My Review')
+
+
+    const showToastMessage = () => {
+        toast.success('Review deleted successfully', {
+            position: toast.POSITION.BOTTOM_RIGHT
+        });
+    };
+
+
 
     const { user } = useContext(AuthContext);
     const [reviews, setReviews] = useState([])
@@ -16,12 +25,9 @@ const MyReviews = () => {
             .then(data => setReviews(data))
     }, [user?.email])
 
-    console.log(reviews.length)
 
     const handleDelete = review => {
         const permission = window.confirm(`Are you sure you want to delete: ${review.name}`)
-        console.log(permission);
-        console.log(review._id);
         if (permission) {
             fetch(`https://y-nine-rose.vercel.app/addreview/${review._id}`, {
                 method: 'DELETE'
@@ -31,6 +37,7 @@ const MyReviews = () => {
                     console.log(data)
                     if (data.deletedCount > 0) {
                         alert('Review deleted successfully')
+                        showToastMessage()
                         const remainingReviews = reviews.filter(t => t._id !== review._id)
                         setReviews(remainingReviews)
                     }
@@ -92,7 +99,7 @@ const MyReviews = () => {
                         </div>
                     )
                 }
-
+                <ToastContainer />
             </div>
         </div>
     );
